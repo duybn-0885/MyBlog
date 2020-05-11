@@ -22,7 +22,8 @@ class User(models.Model):
         return self.username
 
 class Post(models.Model):
-    content = models.TextField(max_length=2000)
+    title = models.CharField(max_length=200, default="")
+    content = models.TextField()
     created_at = models.DateTimeField(editable=False)
     updated_at = models.DateTimeField()
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
@@ -33,6 +34,9 @@ class Post(models.Model):
         self.updated_at  = timezone.now()
 
         super(Post, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 class Comment(models.Model):
     content = models.CharField(max_length=50)
