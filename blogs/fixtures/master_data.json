@@ -1,0 +1,33 @@
+[
+    {
+      "model": "blogs.topic",
+      "fields": {
+        "name": "Good article"
+      }
+    },
+    {
+      "model": "blogs.topic",
+      "fields": {
+        "name": "Coding life"
+      }
+    },
+    {
+        "model": "blogs.tag",
+        "fields": {
+          "name": "PHP"
+        }
+    },
+    {
+        "model": "blogs.tag",
+        "fields": {
+          "name": "JS"
+        }
+    }
+    ,
+    {
+        "model": "blogs.tag",
+        "fields": {
+          "name": "Coding"
+        }
+    }
+  ]
