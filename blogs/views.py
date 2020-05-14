@@ -1,7 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Post
+from .serializers import PostSerializer, UserSerializer
+from .permissions import IsReadOnly
+from rest_framework import generics, permissions, viewsets
+from django.contrib.auth import get_user_model
 
-# Create your views here.
+class PostViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsReadOnly,)
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-def index(request):
-    return HttpResponse("Hello. This is my blog")
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer

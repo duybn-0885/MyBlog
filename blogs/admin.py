@@ -7,7 +7,7 @@ custom_models = ['post', 'comment']
 app = apps.get_app_config('blogs')
 
 class PostsAdmin(admin.ModelAdmin):
-    fields = ['content', 'topic']
+    fields = ['title','content', 'topic']
 
 class CommentsAdmin(admin.ModelAdmin):
     fields = ['content', 'user', 'post']

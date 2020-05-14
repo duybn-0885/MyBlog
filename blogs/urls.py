@@ -1,7 +1,9 @@
 from django.urls import path
+from .views import PostViewSet, UserViewSet
+from rest_framework.routers import SimpleRouter
 
-from . import views
+router = SimpleRouter()
+router.register('users', UserViewSet, base_name='users')
+router.register('', PostViewSet, base_name='posts')
 
-url_patterns = [
-    path('', views.index, name='index')
-]
+urlpatterns = router.urls
