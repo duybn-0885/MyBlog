@@ -1,9 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.generic import ListView
 from .models import Post
+from .serializers import PostSerializer
+from .permissions import IsReadOnly
+from rest_framework import generics, permissions
 
-class HomePageView(ListView):
-    model = Post
-    template_name = "home.html"
-    context_object_name = "all_posts_list"
+class PostList(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = (IsReadOnly,)
