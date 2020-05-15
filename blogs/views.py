@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
+
+from rest_framework import generics, permissions, viewsets
+
 from .models import Post
 from .serializers import PostSerializer, UserSerializer
 from .permissions import IsReadOnly
-from rest_framework import generics, permissions, viewsets
-from django.contrib.auth import get_user_model
 
 class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (IsReadOnly,)
