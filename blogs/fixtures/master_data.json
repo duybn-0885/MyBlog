@@ -22,8 +22,7 @@
         "fields": {
           "name": "JS"
         }
-    }
-    ,
+    },
     {
         "model": "blogs.tag",
         "fields": {

@@ -3,8 +3,16 @@ from django.http import HttpResponse
 from django.views.generic import ListView
 
 from .models import Post
+from .serializers import PostSerializer, UserSerializer
+from .permissions import IsReadOnly
+from rest_framework import generics, permissions, viewsets
+from django.contrib.auth import get_user_model
 
-class HomePageView(ListView):
-    model = Post
-    template_name = "home.html"
-    context_object_name = "all_posts_list"
+class PostViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsReadOnly,)
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer

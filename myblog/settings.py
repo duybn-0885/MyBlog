@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'rest_framework',
     'api.apps.ApiConfig',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'django_extensions',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
     ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
 
 ROOT_URLCONF = 'myblog.urls'
