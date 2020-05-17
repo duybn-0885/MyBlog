@@ -1,6 +1,8 @@
-from rest_framework import serializers
-from blogs.models import Post
 from django.contrib.auth import get_user_model
+
+from rest_framework import serializers
+
+from blogs.models import Post
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
