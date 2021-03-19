@@ -9,7 +9,7 @@ django-allauth==0.40.0
 django-extensions==2.2.9
 django-rest-auth==0.9.5
 django-rest-swagger==2.2.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 idna==2.9
 inflect==4.1.0
 itypes==1.2.0
